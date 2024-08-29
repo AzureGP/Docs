@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <title>delusional</title>
+</head>
+<body class="overflow-hidden absolute w-screen h-screen font-[SF Display]">
+
+    <div id="loading" class="bg-black h-screen w-screen z-[100] flex fixed justify-center items-center" style="transition: opacity, 1s;">
+        <div class="type-loading font-sanfrancisco text-white"></div>
+
+        <script>
+            document.addEventListener('click', function handleClick(event) {
+                if (event.button === 0) {
+                document.getElementById("loading").style.opacity = 0
+                setTimeout(function() {
+                    document.getElementById("loading").remove();
+                }, 1000);
+                document.removeEventListener('click', handleClick);
+                }
+            });
+        </script>
+    </div>
+ 
+    <div id="notesUi" class="rounded-lg w-[50vh] h-[50%] z-10 absolute bg-[#1e1e1ed6] backdrop-blur-lg ease-in-out" style="top: 150px; left: 150px; opacity: 0; transition: opacity 0.3s; display: none;" draggable="true"">
+        <div class="rounded-t-lg bg-[#373737] justify-start h-10 px-[19px] flex sticky top-0">
+            <div class="items-center flex">
+                <button id="daclosebtn" class="cursor-pointer bg-[#ff3030] rounded-3xl w-3 h-3 mr-2.5 duration-300 ease-in-out"></button>
+                <div class="cursor-pointer bg-[#febc2e] rounded-3xl w-3 h-3 mr-2.5 duration-300 ease-in-out"></div>
+                <div class="cursor-pointer bg-[#28c83f] rounded-3xl w-3 h-3 mr-2.5 duration-300 ease-in-out"></div>
+            </div>
+            <div class="ml-3.5 items-center flex">
+                <div class="font-sanfrancisco text-sm text-[12px] text-white">About Me</div>
+            </div>
+        </div>
+
+        <div class="h-auto w-full p-4 font-sanfrancisco text-[12px] text-white">
+            14y old / he-him / brazillian<br/><br/>
+            experienced developer, specialized in lua and luaC, html, css and javascript for web developments, as well as making apps using react native, expo, jsx<br/><br/>
+            also a part time designer, experienced with figma and photoshop, mostly focused around minimalist designs.
+        </div>
+
+        <script>
+            document.getElementById('daclosebtn').onclick = function() {
+                const gamesUi = document.getElementById('notesUi');
+                if (gamesUi.style.opacity == '1') {
+                    gamesUi.style.opacity = '0';
+                    setTimeout(() => {
+                        gamesUi.style.display = 'none';
+                    }, 300);
+                }
+            }
+        </script>
+    </div>
+
+    <div id="gamesUi" class="rounded-lg w-[90vh] h-[60%] z-10 absolute bg-[#1e1e1e] ease-in-out flex-row items-start flex" style="top: 150px; left: 150px; transition: opacity 0.3s; opacity: 0; display: none;" draggable="true"">
+        
+        <div class="bg-[#373737] self-stretch p-6 w-[235px] border-r-[#00000025] border-r-[1px] rounded-l-lg h-full">
+            <div class="items-center flex">
+                <button id="daclosebtn1" class="cursor-pointer bg-[#ff3030] rounded-3xl w-3 h-3 mr-2.5 duration-300 ease-in-out"></button>
+                <div class="cursor-pointer bg-[#febc2e] rounded-3xl w-3 h-3 mr-2.5 duration-300 ease-in-out"></div>
+                <div class="cursor-pointer bg-[#28c83f] rounded-3xl w-3 h-3 mr-2.5 duration-300 ease-in-out"></div>
+            </div>
+            <div>
+                <div class="text-[#a9a9a9] text-[12px] font-bold mt-3 mb-4">Favourites</div>
+                <div class="flex flex-row p-[5px]">
+                    <img srcset="../img/folder.svg" class="w-4 h-4">
+                    <div class="font-sanfrancisco text-white items-center justify-center pl-2 text-[12px]">GAMES</div>
+                </div>
+                <div class="flex flex-row p-[5px]">
+                    <img srcset="../img/folder.svg" class="w-4 h-4">
+                    <div class="font-sanfrancisco text-white items-center justify-center pl-2 text-[12px]">PROJECTS</div>
+                </div>
+                <div class="text-[#a9a9a9] text-[12px] font-bold mt-3 mb-4">iCloud</div>
+                <div class="text-[#a9a9a9] text-[12px] font-bold mt-3 mb-4">Locations</div>
+
+                <div class="flex flex-row p-[5px] items-center">
+                    <img srcset="../img/mycoolicon.png" class="w-4 h-4">
+                    <div class="font-sanfrancisco text-white items-center justify-center pl-2 text-[12px]">WebsiteStorage</div>
+                </div>
+
+                <div class="text-[#a9a9a9] text-[12px] font-bold mt-3 mb-4">Tags</div>
+
+                <div class="flex flex-row p-[5px] items-center">
+                    <div class="rounded-3xl w-2 h-2 bg-red-500"></div>
+                    <div class="font-sanfrancisco text-white items-center justify-center pl-2 text-[12px]">Development</div>
+                </div>
+                <div class="flex flex-row p-[5px] items-center">
+                    <div class="rounded-3xl w-2 h-2 bg-purple-500"></div>
+                    <div class="font-sanfrancisco text-white items-center justify-center pl-2 text-[12px]">Studying</div>
+                </div>
+                <div class="flex flex-row p-[5px] items-center">
+                    <div class="rounded-3xl w-2 h-2 bg-blue-500"></div>
+                    <div class="font-sanfrancisco text-white items-center justify-center pl-2 text-[12px]">Notes</div>
+                </div>
+                <div class="flex flex-row p-[5px] items-center">
+                    <div class="rounded-3xl w-2 h-2 bg-green-500"></div>
+                    <div class="font-sanfrancisco text-white items-center justify-center pl-2 text-[12px]">Personal</div>
+                </div>
+                <div class="flex flex-row p-[5px] items-center">
+                    <div class="rounded-3xl w-2 h-2 bg-yellow-500"></div>
+                    <div class="font-sanfrancisco text-white items-center justify-center pl-2 text-[12px]">Work</div>
+                </div>
+                <div class="flex flex-row p-[5px] items-center">
+                    <div class="rounded-3xl w-2 h-2 bg-orange-500"></div>
+                    <div class="font-sanfrancisco text-white items-center justify-center pl-2 text-[12px]">Games</div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="flex-col flex-1 h-full flex overflow-auto">
+            <div class="bg-[#363636] border-b-[1px] border-b-[#00000025] rounded-tr-lg p-6 h-[7vh] relative items-center flex flex-row gap-4">
+                <div class="border-b-[2px] border-b-[#00000050] border-l-[2px] border-l-[#00000050] h-3 w-3" style="transform: rotate(45deg);"></div>
+                <div class="border-b-[2px] border-b-[#00000050] border-l-[2px] border-l-[#00000050] h-3 w-3" style="transform: rotate(225deg);"></div>
+                <div class="font-sanfrancisco text-sm text-[14px] font-semibold text-white">Games</div>
+            </div>
+            <div class="w-full h-full p-8 grid overflow-auto grid-cols-3 grid-rows-3 gap-8">
+                <div class="text-center flex-col justify-start items-center flex p-4">
+                    <img srcset="../img/genericfile.png" class="w-[65%] h-[100%]">
+                    <div class="font-sanfrancisco text-white text-[12px] pt-3">Realms.rblx</div>
+                    <div class="font-sanfrancisco text-[#FFFFFF50] text-[12px]">lucas</div>
+                </div>
+                <div class="text-center flex-col justify-start items-center flex p-4">
+                    <img srcset="../img/genericfile.png" class="w-[65%] h-[100%]">
+                    <div class="font-sanfrancisco text-white text-[12px] pt-3">Lucas's Card Fighting.rblx</div>
+                    <div class="font-sanfrancisco text-[#FFFFFF50] text-[12px]">lucas</div>
+                </div>
+                <div class="text-center flex-col justify-start items-center flex p-4">
+                    <img srcset="../img/genericfile.png" class="w-[65%] h-[100%]">
+                    <div class="font-sanfrancisco text-white text-[12px] pt-3">DPTBX.rblx</div>
+                    <div class="font-sanfrancisco text-[#FFFFFF50] text-[12px]">lucas</div>
+                </div>
+                <div class="text-center flex-col justify-start items-center flex p-4">
+                    <img srcset="../img/genericfile.png" class="w-[65%] h-[100%]">
+                    <div class="font-sanfrancisco text-white text-[12px] pt-3">random td game.rblx</div>
+                    <div class="font-sanfrancisco text-[#FFFFFF50] text-[12px]">lucas</div>
+                </div>
+                <div class="text-center flex-col justify-start items-center flex p-4">
+                    <img srcset="../img/genericfile.png" class="w-[65%] h-[100%]">
+                    <div class="font-sanfrancisco text-white text-[12px] pt-3">Arcane.zip</div>
+                    <div class="font-sanfrancisco text-[#FFFFFF50] text-[12px]">lucas</div>
+                </div>
+                <div class="text-center flex-col justify-start items-center flex p-4">
+                    <img srcset="../img/genericfile.png" class="w-[65%] h-[100%]">
+                    <div class="font-sanfrancisco text-white text-[12px] pt-3">Snowing Summit.rblx</div>
+                    <div class="font-sanfrancisco text-[#FFFFFF50] text-[12px]">vastra</div>
+                </div>
+                <div class="text-center flex-col justify-start items-center flex p-4">
+                    <img srcset="../img/genericfile.png" class="w-[65%] h-[100%]">
+                    <div class="font-sanfrancisco text-white text-[12px] pt-3">chaotic goobers.rblx</div>
+                    <div class="font-sanfrancisco text-[#FFFFFF50] text-[12px]">vastra</div>
+                </div>
+                <div class="text-center flex-col justify-start items-center flex p-4">
+                    <img srcset="../img/genericfile.png" class="w-[65%] h-[100%]">
+                    <div class="font-sanfrancisco text-white text-[12px] pt-3">SE</div>
+                    <div class="font-sanfrancisco text-[#FFFFFF50] text-[12px]">Frostt Studios.rblx</div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById('daclosebtn1').onclick = function() {
+                const gamesUi = document.getElementById('gamesUi');
+                if (gamesUi.style.opacity == '1') {
+                    gamesUi.style.opacity = '0';
+                    setTimeout(() => {
+                        gamesUi.style.display = 'none';
+                    }, 300);
+                }
+            }
+        </script>
+        
+    </div>
+
+    <div id="projectsUi" class="rounded-lg w-[90vh] h-[60%] z-10 absolute bg-[#1e1e1e] ease-in-out flex-row items-start flex" style="top: 135px; left: 135px; transition: opacity 0.3s; opacity: 0; display: none;" draggable="true"">
+        
+        <div class="bg-[#373737] self-stretch p-6 w-[235px] border-r-[#00000025] border-r-[1px] rounded-l-lg h-full">
+            <div class="items-center flex">
+                <button id="daclosebtn2" class="cursor-pointer bg-[#ff3030] rounded-3xl w-3 h-3 mr-2.5 duration-300 ease-in-out"></button>
+                <div class="cursor-pointer bg-[#febc2e] rounded-3xl w-3 h-3 mr-2.5 duration-300 ease-in-out"></div>
+                <div class="cursor-pointer bg-[#28c83f] rounded-3xl w-3 h-3 mr-2.5 duration-300 ease-in-out"></div>
+            </div>
+            <div>
+                <div class="text-[#a9a9a9] text-[12px] font-bold mt-3 mb-4">Favourites</div>
+                <div class="flex flex-row p-[5px]">
+                    <img srcset="../img/folder.svg" class="w-4 h-4">
+                    <div class="font-sanfrancisco text-white items-center justify-center pl-2 text-[12px]">GAMES</div>
+                </div>
+                <div class="flex flex-row p-[5px]">
+                    <img srcset="../img/folder.svg" class="w-4 h-4">
+                    <div class="font-sanfrancisco text-white items-center justify-center pl-2 text-[12px]">PROJECTS</div>
+                </div>
+                <div class="text-[#a9a9a9] text-[12px] font-bold mt-3 mb-4">iCloud</div>
+                <div class="text-[#a9a9a9] text-[12px] font-bold mt-3 mb-4">Locations</div>
+
+                <div class="flex flex-row p-[5px] items-center">
+                    <img srcset="../img/mycoolicon.png" class="w-4 h-4">
+                    <div class="font-sanfrancisco text-white items-center justify-center pl-2 text-[12px]">WebsiteStorage</div>
+                </div>
+
+                <div class="text-[#a9a9a9] text-[12px] font-bold mt-3 mb-4">Tags</div>
+
+                <div class="flex flex-row p-[5px] items-center">
+                    <div class="rounded-3xl w-2 h-2 bg-red-500"></div>
+                    <div class="font-sanfrancisco text-white items-center justify-center pl-2 text-[12px]">Development</div>
+                </div>
+                <div class="flex flex-row p-[5px] items-center">
+                    <div class="rounded-3xl w-2 h-2 bg-purple-500"></div>
+                    <div class="font-sanfrancisco text-white items-center justify-center pl-2 text-[12px]">Studying</div>
+                </div>
+                <div class="flex flex-row p-[5px] items-center">
+                    <div class="rounded-3xl w-2 h-2 bg-blue-500"></div>
+                    <div class="font-sanfrancisco text-white items-center justify-center pl-2 text-[12px]">Notes</div>
+                </div>
+                <div class="flex flex-row p-[5px] items-center">
+                    <div class="rounded-3xl w-2 h-2 bg-green-500"></div>
+                    <div class="font-sanfrancisco text-white items-center justify-center pl-2 text-[12px]">Personal</div>
+                </div>
+                <div class="flex flex-row p-[5px] items-center">
+                    <div class="rounded-3xl w-2 h-2 bg-yellow-500"></div>
+                    <div class="font-sanfrancisco text-white items-center justify-center pl-2 text-[12px]">Work</div>
+                </div>
+                <div class="flex flex-row p-[5px] items-center">
+                    <div class="rounded-3xl w-2 h-2 bg-orange-500"></div>
+                    <div class="font-sanfrancisco text-white items-center justify-center pl-2 text-[12px]">Games</div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="flex-col flex-1 h-full flex overflow-auto">
+            <div class="bg-[#363636] border-b-[1px] border-b-[#00000025] rounded-tr-lg p-6 h-[7vh] relative items-center flex flex-row gap-4">
+                <div class="border-b-[2px] border-b-[#00000050] border-l-[2px] border-l-[#00000050] h-3 w-3" style="transform: rotate(45deg);"></div>
+                <div class="border-b-[2px] border-b-[#00000050] border-l-[2px] border-l-[#00000050] h-3 w-3" style="transform: rotate(225deg);"></div>
+                <div class="font-sanfrancisco text-sm text-[14px] font-semibold text-white">Projects</div>
+            </div>
+            <div class="w-full h-full p-8 grid overflow-auto grid-cols-3 grid-rows-3 gap-8">
+                <div class="text-center flex-col justify-start items-center flex p-4">
+                    <img srcset="../img/actualhorizonimage.png" class="w-[65%] h-[100%] drop-shadow-lg">
+                    <a href="https://ilylucas.github.io/Horizon/" class="underline font-sanfrancisco text-sky-500 text-[12px] pt-3">Horizon.lua</a>
+                    <div class="font-sanfrancisco text-[#FFFFFF50] text-[12px]">lucas</div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById('daclosebtn2').onclick = function() {
+                const gamesUi = document.getElementById('projectsUi');
+                if (gamesUi.style.opacity == '1') {
+                    gamesUi.style.opacity = '0';
+                    setTimeout(() => {
+                        gamesUi.style.display = 'none';
+                    }, 300);
+                }
+            }
+        </script>
+        
+    </div>
+
+
+    <nav class="z-20 fixed w-full h-7 justify-center bg-[#0000004D] backdrop-blur-sm">
+        <div class="px-2.5 flex w-full h-full justify-between items-center text-sm">
+            <div class="items-center justify-center h-full flex">
+                <a href="./index.html" class="flex px-2.5 h-full ease-in-out hover:bg-[#ffffff1a] rounded-md duration-200">
+                    <img srcset="../img/mycoolicon.png" class="self-center w-25 h-25 max-w-6">
+                </a>
+                <a href="https://discord.gg/UgTksZgD" class="flex px-2.5 h-full ease-in-out hover:bg-[#ffffff1a] rounded-md self-center font-sanfrancisco text-white items-center duration-200">Discord</a>
+                <a href="https://open.spotify.com/user/ouu982by96ws7v6r9ugkxz4u4" class="flex px-2.5 h-full ease-in-out hover:bg-[#ffffff1a] rounded-md self-center font-sanfrancisco text-white items-center duration-200">Spotify</a>
+                <a href="https://www.tiktok.com/@lucasixiv" class="flex px-2.5 h-full ease-in-out hover:bg-[#ffffff1a] rounded-md self-center font-sanfrancisco text-white items-center duration-200">TikTok</a>
+            </div>
+            <div class="flex lg:order-2 gap-5">
+                <a id="mybigclock" href="#" class="font-sanfrancisco text-white">Hi Bro!</a>
+            </div>
+
+            <script>
+                setInterval(function() {
+                    
+                    const now = new Date()
+                    const currentDate = now.toLocaleString()
+                    document.getElementById('mybigclock').innerHTML = currentDate
+
+                }, 1000);
+
+            </script>
+        </div>
+    </nav>
+
+    <div class="bg-[#0000004D] backdrop-blur-sm m-auto place-content-center place-items-center z-20 w-[500px] p-2.5 flex fixed rounded-[24px]" style="inset: auto 0% 1%">
+        <a href="https://open.spotify.com/user/ouu982by96ws7v6r9ugkxz4u4" class="text-[#a3a3a3] flex flex-col self-auto items-center justify-center w-[90px] h-full p-1 mr-1 duration-200 ease-in-out font-sanfrancisco text-[10px] hover:scale-[1.4]">
+            <img class="p-[5px] w-full" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/512px-Spotify_icon.svg.png" width="100" sizes="(max-width: 479px) 100vw 82px">
+            <div>Spotify</div>
+        </a>
+        <a href="https://www.roblox.com/users/1154813280/profile" class="text-[#a3a3a3] flex flex-col self-auto items-center justify-center w-[90px] h-full p-1 mr-1 duration-200 ease-in-out font-sanfrancisco text-[10px] hover:scale-[1.4]">
+            <img class="p-[5px] w-full" src="https://cdn.freelogovectors.net/wp-content/uploads/2021/12/robloxlogo-freelogovectors.net_.png" width="100" sizes="(max-width: 479px) 100vw 82px">
+            <div>Roblox</div>
+        </a>
+        <a href="https://www.last.fm/user/ilyIucas" class="text-[#a3a3a3] flex flex-col self-auto items-center justify-center w-[90px] h-full p-1 mr-1 duration-200 ease-in-out font-sanfrancisco text-[10px] hover:scale-[1.4]">
+            <img class="p-[5px] w-full" src="https://cdn-icons-png.flaticon.com/512/226/226278.png" width="100" sizes="(max-width: 479px) 100vw 82px">
+            <div>last.fm</div>
+        </a>
+        <a href="https://www.tiktok.com/@lucasixiv" class="text-[#a3a3a3] flex flex-col self-auto items-center justify-center w-[90px] h-full p-1 mr-1 duration-200 ease-in-out font-sanfrancisco text-[10px] hover:scale-[1.4]">
+            <img class="p-[5px] w-full" src="https://cdn4.iconfinder.com/data/icons/social-media-flat-7/64/Social-media_Tiktok-512.png" width="100" sizes="(max-width: 479px) 100vw 82px">
+            <div>TikTok</div>
+        </a>
+        <div id="aboutme" class="text-[#a3a3a3] flex flex-col self-auto items-center justify-center w-[90px] h-full p-1 mr-1 duration-200 ease-in-out font-sanfrancisco text-[10px] hover:scale-[1.4]">
+            <img class="p-[5px] w-full" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_Notes_icon.svg/2048px-Apple_Notes_icon.svg.png" width="100" sizes="(max-width: 479px) 100vw 82px">
+            <div>About Me</div>
+        </div>
+
+        <script>
+            const btn = document.getElementById("aboutme")
+            
+            btn.onclick = function() {
+                const gamesUi = document.getElementById('notesUi');
+                gamesUi.style.display = 'block';
+                setTimeout(() => {
+                    gamesUi.style.opacity = '1';
+                }, 0);
+            }
+        </script>
+        
+    </div>
+
+    <div class="z-[5] pt-[70px] flex-col w-[130px] flex fixed justify-start place-items-start" style="inset: 0% 0% 0% auto;">
+        <div id="gamesFolder" class="py-[10px] px-[16px] mb-[30px] items-center justify-center flex-col text-center flex">
+            <img src="../img/foldericn.png" class="max-w-[100%] inline-block align-middle">
+            <div class="text-white font-sanfrancisco font-semibold">GAMES</div>
+        </div>
+        <div id="projectsFolder" class="py-[10px] px-[16px] mb-[30px] items-center justify-center flex-col text-center flex">
+            <img src="../img/foldericn.png" class="max-w-[100%] inline-block align-middle">
+            <div class="text-white font-sanfrancisco font-semibold">PROJECTS</div>
+        </div>
+
+       <script>
+            document.getElementById('gamesFolder').onclick = function() {
+                const gamesUi = document.getElementById('gamesUi');
+                gamesUi.style.display = 'flex';
+                setTimeout(() => {
+                    gamesUi.style.opacity = '1';
+                }, 0);
+            }
+
+            document.getElementById('projectsFolder').onclick = function() {
+                const projectsUi = document.getElementById('projectsUi');
+                projectsUi.style.display = 'flex';
+                setTimeout(() => {
+                    projectsUi.style.opacity = '1';
+                }, 0);
+            }
+
+
+       </script>
+
+    </div>
+
+    <span class="bg-cover bg-[url(../img/background.jpg)] w-full mn-h-[900px] h-screen overflow-hidden fixed hidden lg:block"></span>
+
+    <script>
+        dragElement(document.getElementById("notesUi"));
+        dragElement(document.getElementById("gamesUi"));
+        dragElement(document.getElementById("projectsUi"));
+
+        function dragElement(elmnt) {
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+
+            if (document.getElementById(elmnt.id + "header")) {
+                document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+            } else {
+                elmnt.onmousedown = dragMouseDown;
+            }
+
+            function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+                
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+
+                document.onmousemove = elementDrag;
+            }
+
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            }
+
+            function closeDragElement() {
+                
+                document.onmouseup = null;
+                document.onmousemove = null;
+            }
+        }
+
+    </script>
+
+
+</body>
+</html>

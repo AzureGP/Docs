@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'Sf pro display';
+  src: url('https://cdn.prod.website-files.com/651af9e426275394c6dcc587/651af9e826275394c6dcca1c_SF-Pro-Display-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sf pro display';
+  src: url('https://cdn.prod.website-files.com/651af9e426275394c6dcc587/651af9e826275394c6dcca1d_SF-Pro-Display-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sf pro display';
+  src: url('https://cdn.prod.website-files.com/651af9e426275394c6dcc587/651af9e826275394c6dcca20_SF-Pro-Display-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sf pro display';
+  src: url('https://cdn.prod.website-files.com/651af9e426275394c6dcc587/651af9e826275394c6dcca1f_SF-Pro-Display-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sf pro display';
+  src: url('https://cdn.prod.website-files.com/651af9e426275394c6dcc587/651af9e826275394c6dcca1e_SF-Pro-Display-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
